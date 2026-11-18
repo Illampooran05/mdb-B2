@@ -29,26 +29,35 @@
 #4. Démarrer le jeu
 #4.1 Demander le nom du joueur
 #4.2 Créer l’équipe de héros
-#4.2.1 Partir d’une équipe vide
-#4.2.2 Tant que
-#    l’équipe a moins de 3 héros :
+#    Partir d’une équipe vide
+#    Tant que infini
+#    l’équipe a moins de 3 héros 
+    #    afficher la liste des héros numérotés
+
+
+
+#4.3 Créer l’équipe de monstre
+#    Partir d’une équipe vide
+#    Tant que infini
+#    l’équipe a moins de 3 monstre :
 #    afficher la liste des héros numérotés
 #       pour chque option dans enumerate(option, start=1)
 #    demander un choix au joueur
-#    si le choix valide 
-#         retourner le choix valide 
+#    si le choix valide  
+#         retourner le choix valide de monstre
 #    sinon le choix est invalide 
+#    si le monstre est déjà dans l’équipe 
+#       retourner 
+#    sinon ajouter un autre monstre à l’équipe et retire le monstre
 
-#    si le héros est déjà dans l’équipe : 
-#    sinon : ajouter le héros à l’équipe
-#4.3 Créer l’équipe de monstres 
-#4.3.1 Partir d’une équipe vide
-#4.3.2 Tant que l’équipe a moins de 3 monstre :
-#    afficher la liste des monstre numérotés
-#    demander un choix au joueur
-#    si le choix est invalide : afficher "une erreur" et recommencer
-#    si le monstre est déjà dans l’équipe : afficher "Déjà choisi" et recommencer
-#    sinon : ajouter le monstre à l’équipe
+# choix_valide_monstre
+#    si le choix n'est pas isaigit( )
+#       retourner false
+#    convertir le choix en entier
+#    si le choix est inférieur au minimum ou supérieur au maximum   
+#       retourner false
+#    retourner true
+
 #4.4 Lancer le combat
 
 #5 regle de combat 
