@@ -51,16 +51,31 @@
 #
 # 4.3 Créer l'équipe de monstres(liste_monstres_db)
 #    créer la variable equipe vide
-#    tant que l'équipe n'est pas complète (#4.2.1)
-#       déterminer la liste des monstres disponibles (#4.2.2)
+#    tant que l'équipe n'est pas complète 
+#       déterminer la liste des monstres disponibles 
 #       choisir un monstre au hasard dans les disponibles
 #       ajouter le monstre choisi à l'équipe
 #    retourner l'équipe
 
 
+# Affrontement contre des monstres en boucle jusqu'à la défaite.
+#combat_a_mort 
+#   recuperer les duex équipe (créer_equipe_héros, créer_equipe_monstre)
+#   tent que equipe monstre en vie et equipe hero en vie
+#      equipe hero attaquent le monstre 
+#      equipe monstre attaque un héro harasard  
+#      
+#         
+#       
+
+
+
+
 
 #___________________________________________________________________________________________________________________________________________
 import random
+from models import list_monstre, list_personnages
+
 
 
 
@@ -85,7 +100,7 @@ def determiner_personnages_disponibles(liste_personnages_db, equipe):
 #    pour chaque personnage dans liste_personnages_db
     for chaque_personnage in liste_personnages_db:
 #       si le personnage n'est pas dans l'équipe
-        if personnage not in equipe:
+        if list_personnages not in equipe:
 #          ajouter le personnage à disponibles
             disponible.append(disponible)
 #    retourner disponibles
@@ -102,12 +117,19 @@ def est_equipe_complete(equipe):
 
 
 # 4.3 Créer l'équipe de monstres(liste_monstres_db)
+def creer_equipe_monstres(liste_monstre_db):
 #    créer la variable equipe vide
-#    tant que l'équipe n'est pas complète (#4.2.1)
-#       déterminer la liste des monstres disponibles (#4.2.2)
+    equipe = []
+#    tant que l'équipe n'est pas complète
+    while not est_equipe_complete(equipe):
+#       déterminer la liste des monstres disponibles 
+        disponibles = determiner_personnages_disponibles(liste_monstre_db, equipe)
 #       choisir un monstre au hasard dans les disponibles
+        monstre_choisi = random.choice(disponibles)
 #       ajouter le monstre choisi à l'équipe
+        equipe.append(monstre_choisi.copy())
 #    retourner l'équipe
+    return equipe
   
 #4.2 Créer l'équipe de héros   
 def créer_equipe_héros(liste_personnage_db):
@@ -170,8 +192,17 @@ def afficher_menu_principal():
 
 # 0 main
 if __name__ == "__main__":
-    choix_utilisateur = afficher_menu_principal()
-    print(f"Vous avez sélectionné l'option n°{choix_utilisateur}.")
+    while True:
+        choix_utilisateur = afficher_menu_principal()
+        
+        if choix_utilisateur == 1:
+            demarrer_le_jeu(list_personnages, list_monstre)
+        elif choix_utilisateur == 2:
+            print("\nAffichage du classement...")
+        elif choix_utilisateur == 3:
+            print("\nAu revoir !")
+            break
+
 
 
 
