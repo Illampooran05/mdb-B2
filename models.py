@@ -1,7 +1,9 @@
 
+from pymongo import MongoClient
 
 
-list_heros=[{"name":"Guerrier","ATK":15, "DEF":10, "PV":100},
+
+list_personnages=[{"name":"Guerrier","ATK":15, "DEF":10, "PV":100},
 
 { "name":"Mage", "ATK":20, "DEF": 5, "PV": 80 },
 
@@ -46,3 +48,12 @@ list_monstre=[{ "name":"Gobelin", "ATK":10, "DEF":5, "PV":50},
 
 ]            
 
+client = MongoClient("mongodb://localhost:27017/")
+db = client["Monstre"]
+
+personnages_dispo = list(db["personnage"].find({}, {"_id": 0}))
+monstres_dispo = list(db["Monstre"].find({}, {"_id": 0}))
+
+
+print(personnages_dispo)
+print(monstres_dispo)

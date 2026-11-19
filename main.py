@@ -31,7 +31,7 @@
 #    retourner l'équipe
 
 
-##4.2.1 Est_equipe_complete(équipe)
+#4.2.1 Est_equipe_complete(équipe)
 #    si la taille de l'équipe est égale à 3
 #       retourner true
 #    retourner false
@@ -49,23 +49,33 @@
 #       ajouter "{nom} - {atk} ATK - {def} DEF - {pv} PV" à options
 #    retourner options
 #
-#
+# 4.3 Créer l'équipe de monstres(liste_monstres_db)
+#    créer la variable equipe vide
+#    tant que l'équipe n'est pas complète (#4.2.1)
+#       déterminer la liste des monstres disponibles (#4.2.2)
+#       choisir un monstre au hasard dans les disponibles
+#       ajouter le monstre choisi à l'équipe
+#    retourner l'équipe
+
 
 
 #___________________________________________________________________________________________________________________________________________
+import random
+
 
 
 
 
 #4.2.3 Construire_options_affichables(personnages_disponibles)
-def construire_aption_affichables(personnages_disponibles):
+def construire_options_affichables(personnages_disponibles):
 #    options = liste vide
     option = []
 #    pour chaque personnage dans personnages_disponibles
     for personnage in personnages_disponibles:
 #       ajouter "{nom} - {atk} ATK - {def} DEF - {pv} PV" à options
+        option.append(f"{personnage['nom']} - {personnage['atk']} ATK - {personnage['def']} DEF - {personnage['pv']} PV ")
 #    retourner options
-
+    return option
 
 
 #4.2.2 Determiner_personnages_disponibles(liste_personnages_db, équipe)
@@ -91,14 +101,22 @@ def est_equipe_complete(equipe):
     return False
 
 
+# 4.3 Créer l'équipe de monstres(liste_monstres_db)
+#    créer la variable equipe vide
+#    tant que l'équipe n'est pas complète (#4.2.1)
+#       déterminer la liste des monstres disponibles (#4.2.2)
+#       choisir un monstre au hasard dans les disponibles
+#       ajouter le monstre choisi à l'équipe
+#    retourner l'équipe
+  
 #4.2 Créer l'équipe de héros   
-def créer_equipe_héros(liste_personnages_db):
+def créer_equipe_héros(liste_personnage_db):
 #    créer la variable équipe vide
     equipe = []
 #    tant que l'équipe n'est pas complète 
     while not est_equipe_complete(equipe):
 #       déterminer la liste des personnages disponibles 
-        disponibles = determiner_personnages_disponibles(liste_personnages_db, equipe)
+        disponibles = determiner_personnages_disponibles(liste_personnage_db, equipe)
 #       construire la liste des options à afficher 
         options = construire_options_affichables(disponibles)
 #       récupérer le choix utilisateur 
@@ -154,7 +172,6 @@ def afficher_menu_principal():
 if __name__ == "__main__":
     choix_utilisateur = afficher_menu_principal()
     print(f"Vous avez sélectionné l'option n°{choix_utilisateur}.")
-    
 
 
 
