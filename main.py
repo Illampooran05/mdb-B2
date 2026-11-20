@@ -63,10 +63,20 @@
 #   recuperer les duex équipe (créer_equipe_héros, créer_equipe_monstre)
 #   tent que equipe monstre en vie et equipe hero en vie
 #      equipe hero attaquent le monstre 
-#      equipe monstre attaque un héro harasard  
-#      
+#           chaque heros     
+#              atk monstre 
+#              reduit les pv ²
+#           
+#      equipe monstre choisie un héro à harasard
+#            atk de monstre  reduit le pv un heros 
+#            garde la nouveau pv du heros 
+
+
+#      si les pv equipe_heros == 0 == fin de la partie 
+#      si les pv du equipe_monstre == 0 == Victoire 
 #         
-#       
+#  
+#      
 
 
 
