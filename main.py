@@ -65,14 +65,15 @@
 #      equipe hero attaquent le monstre 
 #          Pour chaque atk heros     
 #             monstre perde des pv 
-#           
-#      equipe monstre choisie un héro à harasard
-#            atk de monstre  reduit le pv un heros 
-#            
+#          si les pv du equipe_monstre == 0 == Victoire 
+#      
+#      equipe monstre atk un héro à harasard    
+#              reduit le pv un heros 
+#          si les pv equipe_heros == 0 == fin de la partie   
 
 
-#      si les pv equipe_heros == 0 == fin de la partie 
-#      si les pv du equipe_monstre == 0 == Victoire 
+#       
+#      
 #         
 #  
 #      
